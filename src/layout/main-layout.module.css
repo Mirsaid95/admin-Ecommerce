@@ -1,0 +1,110 @@
+.menuItem {
+  transition: all 0.3s ease !important;
+  margin: 4px 8px !important;
+  border-radius: 6px !important;
+}
+
+.menuItem:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateX(5px);
+}
+
+.menuItem:hover a {
+  color: #1890ff !important;
+}
+
+.menuItem:hover .anticon {
+  color: #1890ff !important;
+  transform: scale(1.2);
+}
+
+.menuItemSelected {
+  background: #1890ff !important;
+}
+
+.menuItemSelected:hover {
+  background: #40a9ff !important;
+  transform: translateX(5px);
+}
+
+.menuItemSelected a {
+  color: white !important;
+}
+
+.menuItemSelected .anticon {
+  color: white !important;
+}
+
+.menu {
+  padding: 8px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.menuIcon {
+  transition: all 0.3s ease;
+}
+
+.menuLink {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.menuLink:hover {
+  color: #1890ff !important;
+}
+
+.logoVertical {
+  height: 64px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 2px #FFD700;
+    color: #FFD700;
+  }
+  50% {
+    text-shadow: 0 0 8px #FFD700;
+    color: #FFE55C;
+  }
+  100% {
+    text-shadow: 0 0 2px #FFD700;
+    color: #FFD700;
+  }
+}
+
+.logoText {
+  animation: glow 3s ease-in-out infinite;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  margin: 0 !important;
+  padding: 16px 0 !important;
+  text-align: center !important;
+  font-size: 20px !important;
+  opacity: 0.9;
+} 

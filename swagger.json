@@ -1,0 +1,2695 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Gipermart API",
+      "description": "Gipermart backend",
+      "version": "v1"
+    },
+    "host": "localhost:8000",
+    "schemes": [
+      "http"
+    ],
+    "basePath": "/",
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+      "Basic": {
+        "type": "basic"
+      }
+    },
+    "security": [
+      {
+        "Basic": []
+      }
+    ],
+    "paths": {
+      "/api/admin-delete/{id}/": {
+        "delete": {
+          "operationId": "api_admin-delete_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "/api/admin-login/": {
+        "post": {
+          "operationId": "api_admin-login_create",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/admin/": {
+        "get": {
+          "operationId": "api_admin_list",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "post": {
+          "operationId": "api_admin_create",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "patch": {
+          "operationId": "api_admin_partial_update",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/category_edit/": {
+        "patch": {
+          "operationId": "api_category_edit_partial_update",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/logout/": {
+        "post": {
+          "operationId": "api_logout_create",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/me/": {
+        "get": {
+          "operationId": "api_me_list",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "patch": {
+          "operationId": "api_me_partial_update",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/product-custom-list/": {
+        "get": {
+          "operationId": "api_product-custom-list_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ProductCustomList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/product-variant-list/": {
+        "get": {
+          "operationId": "api_product-variant-list_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "attribute_value",
+              "in": "query",
+              "description": "attribute_value",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "product",
+              "in": "query",
+              "description": "product",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "product__category",
+              "in": "query",
+              "description": "product__category",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "attribute_value__value",
+              "in": "query",
+              "description": "attribute_value__value",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "min_price",
+              "in": "query",
+              "description": "Price GTE",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "max_price",
+              "in": "query",
+              "description": "Price LTE",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ProductVariant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/send-phone/": {
+        "post": {
+          "operationId": "api_send-phone_create",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/subcategory/": {
+        "get": {
+          "operationId": "api_subcategory_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/SubCategory"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/api/verify-phone/": {
+        "post": {
+          "operationId": "api_verify-phone_create",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "201": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "api"
+          ]
+        },
+        "parameters": []
+      },
+      "/attribute-value/": {
+        "get": {
+          "operationId": "attribute-value_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/AttributeValue"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "attribute-value"
+          ]
+        },
+        "post": {
+          "operationId": "attribute-value_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          },
+          "tags": [
+            "attribute-value"
+          ]
+        },
+        "parameters": []
+      },
+      "/attribute-value/{id}/": {
+        "get": {
+          "operationId": "attribute-value_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          },
+          "tags": [
+            "attribute-value"
+          ]
+        },
+        "put": {
+          "operationId": "attribute-value_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          },
+          "tags": [
+            "attribute-value"
+          ]
+        },
+        "patch": {
+          "operationId": "attribute-value_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/AttributeValue"
+              }
+            }
+          },
+          "tags": [
+            "attribute-value"
+          ]
+        },
+        "delete": {
+          "operationId": "attribute-value_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "attribute-value"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this attribute value.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/attribute/": {
+        "get": {
+          "operationId": "attribute_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Attribute"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "attribute"
+          ]
+        },
+        "post": {
+          "operationId": "attribute_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          },
+          "tags": [
+            "attribute"
+          ]
+        },
+        "parameters": []
+      },
+      "/attribute/{id}/": {
+        "get": {
+          "operationId": "attribute_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          },
+          "tags": [
+            "attribute"
+          ]
+        },
+        "put": {
+          "operationId": "attribute_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          },
+          "tags": [
+            "attribute"
+          ]
+        },
+        "patch": {
+          "operationId": "attribute_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Attribute"
+              }
+            }
+          },
+          "tags": [
+            "attribute"
+          ]
+        },
+        "delete": {
+          "operationId": "attribute_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "attribute"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this attribute.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/banner/": {
+        "get": {
+          "operationId": "banner_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Banner"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "banner"
+          ]
+        },
+        "post": {
+          "operationId": "banner_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          },
+          "tags": [
+            "banner"
+          ]
+        },
+        "parameters": []
+      },
+      "/banner/{id}/": {
+        "get": {
+          "operationId": "banner_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          },
+          "tags": [
+            "banner"
+          ]
+        },
+        "put": {
+          "operationId": "banner_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          },
+          "tags": [
+            "banner"
+          ]
+        },
+        "patch": {
+          "operationId": "banner_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Banner"
+              }
+            }
+          },
+          "tags": [
+            "banner"
+          ]
+        },
+        "delete": {
+          "operationId": "banner_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "banner"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this banner.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/brand/": {
+        "get": {
+          "operationId": "brand_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/BrandGet"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "brand"
+          ]
+        },
+        "post": {
+          "operationId": "brand_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          },
+          "tags": [
+            "brand"
+          ]
+        },
+        "parameters": []
+      },
+      "/brand/{id}/": {
+        "get": {
+          "operationId": "brand_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/BrandGet"
+              }
+            }
+          },
+          "tags": [
+            "brand"
+          ]
+        },
+        "put": {
+          "operationId": "brand_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          },
+          "tags": [
+            "brand"
+          ]
+        },
+        "patch": {
+          "operationId": "brand_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Brand"
+              }
+            }
+          },
+          "tags": [
+            "brand"
+          ]
+        },
+        "delete": {
+          "operationId": "brand_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "brand"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this brannd.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/category/": {
+        "get": {
+          "operationId": "category_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/CategoryList"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "category"
+          ]
+        },
+        "post": {
+          "operationId": "category_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          },
+          "tags": [
+            "category"
+          ]
+        },
+        "parameters": []
+      },
+      "/category/{id}/": {
+        "get": {
+          "operationId": "category_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/CategoryDetail"
+              }
+            }
+          },
+          "tags": [
+            "category"
+          ]
+        },
+        "put": {
+          "operationId": "category_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          },
+          "tags": [
+            "category"
+          ]
+        },
+        "patch": {
+          "operationId": "category_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Category"
+              }
+            }
+          },
+          "tags": [
+            "category"
+          ]
+        },
+        "delete": {
+          "operationId": "category_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "category"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "/discount/": {
+        "get": {
+          "operationId": "discount_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Discount"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "discount"
+          ]
+        },
+        "post": {
+          "operationId": "discount_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          },
+          "tags": [
+            "discount"
+          ]
+        },
+        "parameters": []
+      },
+      "/discount/{id}/": {
+        "get": {
+          "operationId": "discount_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          },
+          "tags": [
+            "discount"
+          ]
+        },
+        "put": {
+          "operationId": "discount_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          },
+          "tags": [
+            "discount"
+          ]
+        },
+        "patch": {
+          "operationId": "discount_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Discount"
+              }
+            }
+          },
+          "tags": [
+            "discount"
+          ]
+        },
+        "delete": {
+          "operationId": "discount_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "discount"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this discount.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/product/": {
+        "get": {
+          "operationId": "product_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/Product"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "product"
+          ]
+        },
+        "post": {
+          "operationId": "product_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "tags": [
+            "product"
+          ]
+        },
+        "parameters": []
+      },
+      "/product/{id}/": {
+        "get": {
+          "operationId": "product_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "tags": [
+            "product"
+          ]
+        },
+        "put": {
+          "operationId": "product_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "tags": [
+            "product"
+          ]
+        },
+        "patch": {
+          "operationId": "product_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          },
+          "tags": [
+            "product"
+          ]
+        },
+        "delete": {
+          "operationId": "product_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "product"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this product.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/product_variant/": {
+        "get": {
+          "operationId": "product_variant_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "attribute_value",
+              "in": "query",
+              "description": "attribute_value",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "product",
+              "in": "query",
+              "description": "product",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "product__category",
+              "in": "query",
+              "description": "product__category",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "attribute_value__value",
+              "in": "query",
+              "description": "attribute_value__value",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "min_price",
+              "in": "query",
+              "description": "Price GTE",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "max_price",
+              "in": "query",
+              "description": "Price LTE",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ProductVariant"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "product_variant"
+          ]
+        },
+        "post": {
+          "operationId": "product_variant_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          },
+          "tags": [
+            "product_variant"
+          ]
+        },
+        "parameters": []
+      },
+      "/product_variant/{id}/": {
+        "get": {
+          "operationId": "product_variant_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          },
+          "tags": [
+            "product_variant"
+          ]
+        },
+        "put": {
+          "operationId": "product_variant_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          },
+          "tags": [
+            "product_variant"
+          ]
+        },
+        "patch": {
+          "operationId": "product_variant_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariant"
+              }
+            }
+          },
+          "tags": [
+            "product_variant"
+          ]
+        },
+        "delete": {
+          "operationId": "product_variant_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "product_variant"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this product variant.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      },
+      "/product_variant_image/": {
+        "get": {
+          "operationId": "product_variant_image_list",
+          "description": "",
+          "parameters": [
+            {
+              "name": "search",
+              "in": "query",
+              "description": "A search term.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "ordering",
+              "in": "query",
+              "description": "Which field to use when ordering the results.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "Number of results to return per page.",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The initial index from which to return the results.",
+              "required": false,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "required": [
+                  "count",
+                  "results"
+                ],
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "next": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "previous": {
+                    "type": "string",
+                    "format": "uri",
+                    "x-nullable": true
+                  },
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ProductVariantImage"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "tags": [
+            "product_variant_image"
+          ]
+        },
+        "post": {
+          "operationId": "product_variant_image_create",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          },
+          "tags": [
+            "product_variant_image"
+          ]
+        },
+        "parameters": []
+      },
+      "/product_variant_image/{id}/": {
+        "get": {
+          "operationId": "product_variant_image_read",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          },
+          "tags": [
+            "product_variant_image"
+          ]
+        },
+        "put": {
+          "operationId": "product_variant_image_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          },
+          "tags": [
+            "product_variant_image"
+          ]
+        },
+        "patch": {
+          "operationId": "product_variant_image_partial_update",
+          "description": "",
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/ProductVariantImage"
+              }
+            }
+          },
+          "tags": [
+            "product_variant_image"
+          ]
+        },
+        "delete": {
+          "operationId": "product_variant_image_delete",
+          "description": "",
+          "parameters": [],
+          "responses": {
+            "204": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "product_variant_image"
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "A unique integer value identifying this product variant image.",
+            "required": true,
+            "type": "integer"
+          }
+        ]
+      }
+    },
+    "definitions": {
+      "ProductCustomList": {
+        "required": [
+          "title",
+          "price",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "x-nullable": true,
+            "format": "uri"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "price": {
+            "title": "Price",
+            "type": "string",
+            "format": "decimal"
+          },
+          "is_available": {
+            "title": "Is available",
+            "type": "boolean"
+          },
+          "category": {
+            "title": "Category",
+            "type": "integer"
+          },
+          "is_new": {
+            "title": "Is new",
+            "type": "boolean"
+          },
+          "product_variant": {
+            "title": "Product variant",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "ProductImage": {
+        "required": [
+          "order"
+        ],
+        "type": "object",
+        "properties": {
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "format": "uri"
+          },
+          "order": {
+            "title": "Order",
+            "type": "integer"
+          }
+        }
+      },
+      "ProductVariant": {
+        "required": [
+          "title",
+          "product",
+          "attribute_value",
+          "price",
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "is_available": {
+            "title": "Is available",
+            "type": "boolean"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ProductImage"
+            },
+            "x-nullable": true
+          },
+          "product": {
+            "title": "Product",
+            "type": "integer"
+          },
+          "attribute_value": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "uniqueItems": true
+          },
+          "other_detail": {
+            "title": "Other detail",
+            "type": "string"
+          },
+          "price": {
+            "title": "Price",
+            "type": "string",
+            "format": "decimal"
+          },
+          "price_with_discount": {
+            "title": "Price with discount",
+            "type": "string",
+            "readOnly": true
+          },
+          "quantity": {
+            "title": "Quantity",
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          }
+        }
+      },
+      "SubCategory": {
+        "type": "object",
+        "properties": {
+  
+        }
+      },
+      "AttributeValue": {
+        "required": [
+          "attribute",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "attribute": {
+            "title": "Attribute",
+            "type": "integer"
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "Attribute": {
+        "required": [
+          "title",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "category": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "Banner": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "created_at": {
+            "title": "Created at",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "title": "Updated at",
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "x-nullable": true,
+            "format": "uri"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 255
+          },
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "x-nullable": true
+          }
+        }
+      },
+      "BrandGet": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Brand": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "x-nullable": true,
+            "format": "uri"
+          }
+        }
+      },
+      "CategoryList": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true
+          },
+          "children": {
+            "title": "Children",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Category": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "x-nullable": true,
+            "format": "uri"
+          },
+          "parent": {
+            "title": "Parent",
+            "type": "integer",
+            "x-nullable": true
+          }
+        }
+      },
+      "CategoryDetail": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "x-nullable": true,
+            "format": "uri"
+          },
+          "parent": {
+            "title": "Parent",
+            "type": "string",
+            "readOnly": true
+          },
+          "children": {
+            "title": "Children",
+            "type": "string",
+            "readOnly": true
+          }
+        }
+      },
+      "Discount": {
+        "required": [
+          "name",
+          "start_date",
+          "end_date",
+          "product",
+          "product_variant"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1
+          },
+          "amount": {
+            "title": "Amount",
+            "type": "integer",
+            "maximum": 32767,
+            "minimum": 0,
+            "x-nullable": true
+          },
+          "percent": {
+            "title": "Percent",
+            "type": "integer",
+            "maximum": 32767,
+            "minimum": 0,
+            "x-nullable": true
+          },
+          "is_active": {
+            "title": "Is active",
+            "type": "boolean"
+          },
+          "start_date": {
+            "title": "Start date",
+            "type": "string",
+            "format": "date"
+          },
+          "end_date": {
+            "title": "End date",
+            "type": "string",
+            "format": "date"
+          },
+          "product": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "uniqueItems": true
+          },
+          "product_variant": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "uniqueItems": true
+          }
+        }
+      },
+      "Product": {
+        "required": [
+          "title",
+          "price",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "x-nullable": true,
+            "format": "uri"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string",
+            "maxLength": 256,
+            "minLength": 1
+          },
+          "price": {
+            "title": "Price",
+            "type": "string",
+            "format": "decimal"
+          },
+          "is_available": {
+            "title": "Is available",
+            "type": "boolean"
+          },
+          "category": {
+            "title": "Category",
+            "type": "integer"
+          },
+          "is_new": {
+            "title": "Is new",
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductVariantImage": {
+        "required": [
+          "product_variant"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "ID",
+            "type": "integer",
+            "readOnly": true
+          },
+          "image": {
+            "title": "Image",
+            "type": "string",
+            "readOnly": true,
+            "format": "uri"
+          },
+          "order": {
+            "title": "Order",
+            "type": "integer",
+            "maximum": 2147483647,
+            "minimum": -2147483648
+          },
+          "product_variant": {
+            "title": "Product variant",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
